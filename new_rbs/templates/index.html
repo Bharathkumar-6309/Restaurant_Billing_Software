@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Restaurant POS</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+  <header class="site-header">
+    <div class="brand">
+      <div class="logo">🍽️</div>
+      <div>
+        <h1>Restaurant POS</h1>
+        <p class="tag">The Delicious Kitchen</p>
+      </div>
+    </div>
+    <div class="clock" id="clock"></div>
+  </header>
+
+  <main class="app-grid">
+    <!-- Menu + Filters -->
+    <section class="menu-panel">
+      <h2>Menu</h2>
+      <div id="categoryBar" class="categories"></div>
+
+      <div id="menuGrid" class="menu-grid"></div>
+    </section>
+
+    <!-- Billing -->
+    <aside class="bill-panel">
+      <h2>Payment Details</h2>
+
+      <div class="field">
+        <label>Order Type</label>
+        <div class="order-type">
+          <button id="btnDine" class="type-btn active" data-type="Dine-In">👥 Dine-In</button>
+          <button id="btnTake" class="type-btn" data-type="Takeaway">🛍 Takeaway</button>
+        </div>
+      </div>
+
+      <div class="field">
+        <label>Customer Name (Optional)</label>
+        <input id="customerName" placeholder="Enter customer name">
+      </div>
+
+      <div class="field">
+        <label>Table Number</label>
+        <input id="tableNumber" placeholder="e.g., T-1, Table 5">
+      </div>
+
+      <div class="field">
+        <label>Payment Method</label>
+        <div class="payment-methods">
+          <button class="pm-btn" data-method="Cash">💵 Cash</button>
+          <button class="pm-btn" data-method="Card">💳 Card</button>
+          <button class="pm-btn active" data-method="UPI">📱 UPI</button>
+        </div>
+      </div>
+
+      <div class="bill-list">
+        <h3>Order Summary</h3>
+        <div id="billItems" class="bill-items empty">No items in order</div>
+      </div>
+
+      <div class="totals">
+        <div><span>Subtotal</span><span id="subtotal">₹0.00</span></div>
+        <div><span>GST</span><span id="gstTotal">₹0.00</span></div>
+        <div class="grand"><span>Total Amount</span><span id="grandTotal">₹0.00</span></div>
+      </div>
+
+      <div class="actions">
+        <button id="btnClear" class="btn ghost">Clear All</button>
+        <button id="btnPay" class="btn primary">Process Payment</button>
+      </div>
+
+      <div id="thankBox" class="thank-box hidden">
+        <h3>🎉 Thank you!</h3>
+        <p>Your order has been processed.</p>
+      </div>
+    </aside>
+  </main>
+
+  <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>

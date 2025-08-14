@@ -1,0 +1,126 @@
+:root{
+  --accent: #ff6b35;
+  --accent-dark: #e6551b;
+  --muted: #7d7d7d;
+  --bg: #f6f7f9;
+  --card: #ffffff;
+}
+
+*{box-sizing:border-box}
+body{
+  font-family: "Segoe UI", Roboto, Arial, sans-serif;
+  margin:0;
+  background:var(--bg);
+  color:#222;
+}
+
+.site-header{
+  background:linear-gradient(90deg,var(--accent),#ff8a50);
+  color:white;
+  padding:14px 20px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+}
+
+.brand{display:flex;align-items:center;gap:12px}
+.logo{font-size:28px}
+.brand h1{margin:0;font-size:20px}
+.tag{margin:0;font-size:12px;opacity:0.95}
+
+.clock{font-size:14px;opacity:0.95}
+
+/* layout */
+.app-grid{
+  display:grid;
+  grid-template-columns: 1fr 360px;
+  gap:20px;
+  padding:20px;
+  max-width:1200px;
+  margin: 20px auto;
+}
+
+/* Responsive */
+@media (max-width:1000px){
+  .app-grid{grid-template-columns:1fr 380px}
+}
+@media (max-width:860px){
+  .app-grid{grid-template-columns:1fr; padding:12px}
+}
+
+/* Menu panel */
+.menu-panel{
+  background:var(--card);
+  padding:18px;
+  border-radius:12px;
+  box-shadow:0 6px 18px rgba(20,20,30,0.06);
+}
+
+.categories{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:12px}
+.categories button{
+  border:0;background:#f1f1f1;padding:8px 12px;border-radius:20px;cursor:pointer;font-weight:600;color:#444;
+}
+.categories button.active{background:var(--accent);color:#fff}
+
+/* grid of items */
+.menu-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fill,minmax(260px,1fr));
+  gap:12px;
+}
+
+/* item card */
+.menu-card{
+  background:#fff;padding:14px;border-radius:10px;border:1px solid rgba(0,0,0,0.03);
+  box-shadow:0 3px 8px rgba(10,10,20,0.03);transition:transform .15s,box-shadow .15s;
+}
+.menu-card:hover{transform:translateY(-6px);box-shadow:0 8px 20px rgba(10,10,30,0.08)}
+.menu-head{display:flex;justify-content:space-between;align-items:center;font-weight:700;margin-bottom:6px}
+.menu-desc{font-size:13px;color:var(--muted);margin-bottom:8px}
+.menu-gst{font-size:12px;color:#aaa}
+.add-row{display:flex;justify-content:space-between;align-items:center;margin-top:10px}
+.btn-add{background:var(--accent);color:white;padding:7px 12px;border-radius:8px;border:0;cursor:pointer}
+.btn-add:hover{background:var(--accent-dark)}
+
+/* bill panel */
+.bill-panel{
+  background:var(--card);
+  padding:18px;border-radius:12px;
+  box-shadow:0 6px 18px rgba(20,20,30,0.06);
+  position:relative;
+}
+
+.field{margin-bottom:12px}
+label{display:block;font-weight:700;margin-bottom:6px}
+input{width:100%;padding:8px;border-radius:8px;border:1px solid #e6e6e6}
+
+/* order type and payment buttons */
+.order-type{display:flex;gap:8px}
+.type-btn{border:0;padding:8px 12px;border-radius:10px;background:#f4f4f4;cursor:pointer}
+.payment-methods{display:flex;gap:8px;flex-wrap:wrap}
+.pm-btn{border:0;padding:10px 14px;border-radius:10px;background:#f4f4f4;cursor:pointer}
+.pm-btn.active,.type-btn.active{background:var(--accent);color:white}
+
+/* bill items area */
+.bill-list{margin-top:10px}
+.bill-items{max-height:260px;overflow:auto;padding:8px 4px;border-radius:8px;border:1px dashed #eee}
+.bill-item{display:flex;justify-content:space-between;align-items:center;padding:6px 8px;border-bottom:1px solid #f2f2f2}
+.bill-item:last-child{border-bottom:0}
+.qty-controls{display:flex;gap:6px;align-items:center}
+.qty-controls button{border:0;background:#f0f0f0;padding:4px 8px;border-radius:6px;cursor:pointer}
+
+/* totals */
+.totals{margin-top:12px;font-weight:700}
+.totals div{display:flex;justify-content:space-between;padding:6px 0}
+.totals .grand{font-size:18px;color:var(--accent)}
+
+/* actions */
+.actions{display:flex;gap:8px;margin-top:14px}
+.btn{padding:10px 14px;border-radius:10px;border:0;cursor:pointer}
+.btn.primary{background:#28a745;color:white}
+.btn.ghost{background:#f1f1f1}
+
+/* thank you box */
+.thank-box{margin-top:12px;padding:10px;border-radius:8px;background:#eaffef;border:1px solid #d6f6de;text-align:center}
+.hidden{display:none}
+.empty{color:#888;padding:20px;text-align:center}
